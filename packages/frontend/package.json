@@ -11,23 +11,32 @@
     "typecheck": "wrangler types && react-router typegen && tsc -b"
   },
   "dependencies": {
+    "@base-ui-components/react": "^1.0.0-alpha.7",
+    "@coinbase/onchainkit": "^0.38.5",
+    "@coinbase/wallet-sdk": "^4.3.2",
+    "@selfxyz/core": "^0.0.23",
+    "@selfxyz/qrcode": "^0.0.17",
+    "@tanstack/react-query": "^5.71.10",
+    "ethers": "^6.13.5",
     "isbot": "^5.1.17",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-router": "^7.3.0"
+    "jotai": "^2.12.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.3.0",
+    "viem": "2.x",
+    "wagmi": "^2.14.16"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^0.1.11",
     "@cloudflare/workers-types": "^4.20250303.0",
     "@react-router/dev": "^7.3.0",
-    "@tailwindcss/vite": "^4.0.0",
+    "@tailwindcss/vite": "^4.1.2",
     "@types/node": "^20",
-    "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.1",
-    "tailwindcss": "^4.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.2",
     "typescript": "^5.7.2",
     "vite": "^6.2.1",
-    "vite-tsconfig-paths": "^5.1.4",
-    "wrangler": "^3.114.1"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

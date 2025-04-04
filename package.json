@@ -1,14 +1,14 @@
 {
-	"name": "epo",
-	"module": "index.ts",
-	"type": "module",
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"bun-types": "latest",
-		"wrangler": "^4.7.1"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
-	},
-	"workspaces": ["packages/*"]
+  "name": "epo",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "bun-types": "latest",
+    "wrangler": "^4.7.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "workspaces": ["packages/*"]
 }
