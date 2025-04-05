@@ -1,9 +1,10 @@
 import { OnchainKitProvider } from "@coinbase/onchainkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { type ReactNode, useState } from "react";
-import { base, baseSepolia } from "viem/chains";
+import { baseSepolia } from "viem/chains";
 import { WagmiProvider, cookieToInitialState } from "wagmi";
 import { getWagmiConfig } from "~/lib/wagmi";
+import type { RootLoader } from "~/root";
 
 export default function AppProviders({
   children,
