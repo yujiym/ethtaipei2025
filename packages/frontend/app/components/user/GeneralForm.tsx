@@ -1,14 +1,11 @@
 import {
   FormProvider,
   getFormProps,
-  useField,
+  getInputProps,
   useForm,
 } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { useState } from "react";
-import { useNavigate } from "react-router";
-import { toast } from "sonner";
-import { namehash } from "viem/ens";
 import ConfirmDialog from "~/components/ConfirmDialog";
 import Transaction from "~/components/CustomTransaction";
 import InputWithError from "~/components/Input";
@@ -16,20 +13,22 @@ import { setTextCalls } from "~/lib/calls";
 import { GeneralSchema } from "~/schema/general";
 
 export default function GeneralForm({
+  uid,
   children,
-}: { children?: React.ReactNode }) {
+  data,
+}: { uid: string; children?: React.ReactNode; data: Record<string, string> }) {
   const [form, fields] = useForm({
     defaultValue: {
-      name: "",
-      description: "",
-      "com.twitter": "",
-      "com.instagram": "",
-      "com.github": "",
-      "xyz.farcaster": "",
-      url: "",
-      url2: "",
-      url3: "",
-      url4: "",
+      name: data.name || "",
+      description: data.description || "",
+      com_twitter: data["com.twitter"] || "",
+      com_instagram: data["com.instagram"] || "",
+      com_github: data["com.github"] || "",
+      xyz_farcaster: data["xyz.farcaster"] || "",
+      url: data.url || "",
+      url2: data.url2 || "",
+      url3: data.url3 || "",
+      url4: data.url4 || "",
     },
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: GeneralSchema });
@@ -44,27 +43,7 @@ export default function GeneralForm({
     const formData = new FormData(event.currentTarget);
     const values = Object.fromEntries(formData.entries());
     setConfirmOpen(true);
-    console.log(
-      values,
-      setTextCalls("test6", [
-        { key: "name", value: values.name },
-        { key: "description", value: values.description },
-        { key: "com.twitter", value: values["com.twitter"] },
-        { key: "com.instagram", value: values["com.instagram"] },
-        { key: "com.github", value: values["com.github"] },
-        { key: "xyz.farcaster", value: values["xyz.farcaster"] },
-      ]),
-    );
-    setCalls(
-      setTextCalls("test6", [
-        { key: "name", value: values.name },
-        { key: "description", value: values.description },
-        { key: "com.twitter", value: values["com.twitter"] },
-        { key: "com.instagram", value: values["com.instagram"] },
-        { key: "com.github", value: values["com.github"] },
-        { key: "xyz.farcaster", value: values["xyz.farcaster"] },
-      ]),
-    );
+    setCalls(setTextCalls(uid, values));
   };
 
   return (
@@ -82,10 +61,14 @@ export default function GeneralForm({
           field={fields.description}
           placeholder="Tell yourself"
         />
-        <InputWithError label="Twitter/X" field={fields["com.twitter"]} />
-        <InputWithError label="Github" field={fields["com.github"]} />
-        <InputWithError label="Farcaster" field={fields["xyz.farcaster"]} />
-        <InputWithError label="Intagram" field={fields["com.instagram"]} />
+        <InputWithError label="Twitter/X" field={fields.com_twitter} />
+        <InputWithError label="Github" field={fields.com_github} />
+        <InputWithError label="Farcaster" field={fields.xyz_farcaster} />
+        <InputWithError label="Intagram" field={fields.com_instagram} />
+        <InputWithError label="Website" field={fields.url} />
+        <InputWithError field={fields.url2} />
+        <InputWithError field={fields.url3} />
+        <InputWithError field={fields.url4} />
         <button className="btn w-full" type="submit">
           Save
         </button>

@@ -19,7 +19,7 @@ export const GeneralSchema = z.object({
         .optional()
         .transform((value) => value ?? ""),
     ),
-  "com.twitter": z
+  com_twitter: z
     .string()
     .max(255, { message: "Cannot exceed 255 characters." })
     .or(
@@ -28,7 +28,7 @@ export const GeneralSchema = z.object({
         .optional()
         .transform((value) => value ?? ""),
     ),
-  "com.farcaster": z
+  com_farcaster: z
     .string()
     .max(255, { message: "Cannot exceed 255 characters." })
     .or(
@@ -37,7 +37,7 @@ export const GeneralSchema = z.object({
         .optional()
         .transform((value) => value ?? ""),
     ),
-  "com.github": z
+  com_github: z
     .string()
     .max(255, { message: "Cannot exceed 255 characters." })
     .or(
@@ -46,7 +46,7 @@ export const GeneralSchema = z.object({
         .optional()
         .transform((value) => value ?? ""),
     ),
-  "com.instagram": z
+  com_instagram: z
     .string()
     .max(255, { message: "Cannot exceed 255 characters." })
     .or(
@@ -55,7 +55,7 @@ export const GeneralSchema = z.object({
         .optional()
         .transform((value) => value ?? ""),
     ),
-  "xyz.farcaster": z
+  xyz_farcaster: z
     .string()
     .max(255, { message: "Cannot exceed 255 characters." })
     .or(

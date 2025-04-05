@@ -1,3 +1,4 @@
+import { getInputProps } from "@conform-to/react";
 import { cn } from "~/lib/utils";
 
 export default function Input({
@@ -20,28 +21,21 @@ export default function Input({
       {label && <label htmlFor={field.name}>{label ?? field.name}</label>}
       {inputType === "textarea" ? (
         <textarea
-          key={field.key}
-          name={field.name}
+          {...getInputProps(field, { type: "textarea" })}
           className={cn(
             className,
             "w-full",
             field?.errors && "!border-red-300/50",
           )}
-          placeholder={field.placeholder ?? placeholder}
-          aria-describedby={field.ariaDescribedBy}
         />
       ) : (
         <input
-          key={field.key}
-          name={field.name}
-          type={inputType}
+          {...getInputProps(field, { type: inputType })}
           className={cn(
             className,
             "w-full",
             field?.errors && "!border-red-300/50",
           )}
-          placeholder={field.placeholder ?? placeholder}
-          aria-describedby={field.ariaDescribedBy}
         />
       )}
       {hint && (

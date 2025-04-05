@@ -1,12 +1,15 @@
-import { useActionData } from "react-router";
+import { useParams } from "react-router";
 import Header from "~/components/Header";
 import GeneralForm from "~/components/user/GeneralForm";
+import useUserRecords from "~/hooks/useUserRecords";
 import type { Route } from "./+types/general";
 
-export const action = async ({ request, context }: Route.ActionArgs) => {};
-
 export default function EditGeneral({ loaderData }: Route.ComponentProps) {
-  const data = useActionData();
+  const { uid } = useParams();
+  const { data, isLoading } = useUserRecords(uid, "form");
+
+  console.log("data--", data);
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -14,7 +17,7 @@ export default function EditGeneral({ loaderData }: Route.ComponentProps) {
         <h3 className="pb-4 text-center font-bold font-serif text-3xl">
           ✍️ Edit Info
         </h3>
-        <GeneralForm />
+        {isLoading ? null : <GeneralForm uid={uid} data={data} />}
       </div>
     </div>
   );
