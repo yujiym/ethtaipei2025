@@ -19,10 +19,11 @@ A ETHGlobal Taipei 2025 project.
 
 ## Codes
 - `packages/frontend` : fronetnd for epo.im -> deployed cloudflare workers
-- `packages/druin` : durin - ENS subnames on an L2
+- `packages/druin` : Durin - ENS subnames on an L2 library
 
 ## Deployments
 - [ENS L2 Registry on Base Sepolia](https://sepolia.basescan.org/address/0x10f609f3a940c065afa3e0ee034e9812092b2d39)
+- [ENS L2 Registrar on Base Sepolia](https://sepolia.basescan.org/address/0x22d99f3e0caf06db1335f6f0fcdee5ad19b84e2b#code)
 - [ENS config on Sepolia](https://sepolia.app.ens.domains/epo.eth?tab=more)
 - [ENS subnames on Sepolia](https://sepolia.app.ens.domains/epo.eth?tab=subnames)
 

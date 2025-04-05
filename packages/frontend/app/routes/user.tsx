@@ -1,4 +1,9 @@
 import { useParams } from "react-router";
+import { baseSepolia, sepolia } from "viem/chains";
+import { namehash, normalize } from "viem/ens";
+import { useAccount, useEnsName } from "wagmi";
+import { useReadContract } from "wagmi";
+import { abi as REVERSE_REGISTRY_ABI } from "~/abis/L2ReverseResolver";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import Skill from "~/components/user/Skill";
@@ -7,6 +12,19 @@ import type { Route } from "./+types/user";
 
 export default function User(_: Route.ComponentProps) {
   const { uid } = useParams();
+  const { address } = useAccount();
+  // const res2 = useReadContract({
+  //   abi: REVERSE_REGISTRY_ABI,
+  //   functionName: "name",
+  //   args: [address],
+  // });
+
+  const res = useEnsName({
+    address,
+    chainId: baseSepolia.id,
+  });
+
+  console.log("---res---:", address, res, namehash("test6.epo.eth"));
 
   return (
     <div className="container mx-auto flex min-h-screen flex-col">
@@ -16,12 +34,12 @@ export default function User(_: Route.ComponentProps) {
           <img
             src="https://res.cloudinary.com/base-web/image/fetch/w_128/f_webp/https%3A%2F%2Fbase.mypinata.cloud%2Fipfs%2Fbafybeicmbmchjfn4ahlyxnqswdaeim4ornfkdf4ahlcc4txpr6y4r33rri%3FpinataGatewayToken%3Df6uqhE35YREDMuFqLvxFLqd-MBRlrJ1qWog8gyCF8T88-Tsiu2IX48F-kyVti78J"
             alt={uid}
-            className="rounded-full w-32 h-32 mb-6"
+            className="mb-6 h-32 w-32 rounded-full"
           />
           <h1 className="font-bold font-serif text-3xl">Yuji Yamaguchi</h1>
           <p className="pt-8">My description aaaaaa.....</p>
         </div>
-        <div className="w-full p-4 md:w-2/3 grid gap-6 grid-cols-1 md:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-6 p-4 md:w-2/3 md:grid-cols-2">
           <Writing />
           <Skill />
         </div>

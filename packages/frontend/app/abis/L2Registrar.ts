@@ -1,12 +1,6 @@
 export const abi = [
   {
-    inputs: [
-      {
-        internalType: "contract IL2Registry",
-        name: "_registry",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "address", name: "_registry", type: "address" }],
     stateMutability: "nonpayable",
     type: "constructor",
   },
@@ -43,17 +37,6 @@ export const abi = [
     name: "coinType",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "string", name: "label", type: "string" },
-      { internalType: "address", name: "owner", type: "address" },
-      { internalType: "string", name: "name", type: "string" },
-    ],
-    name: "register",
-    outputs: [],
-    stateMutability: "nonpayable",
     type: "function",
   },
   {

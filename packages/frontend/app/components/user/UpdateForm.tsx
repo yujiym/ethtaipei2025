@@ -8,22 +8,13 @@ import { parseWithZod } from "@conform-to/zod";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useCallback } from "react";
 import { Form, useNavigate } from "react-router";
+import { namehash } from "viem/ens";
 import { useAccount } from "wagmi";
 import ConfirmDialog from "~/components/ConfirmDialog";
 import Transaction from "~/components/CustomTransaction";
 import InputWithError from "~/components/Input";
-import { registerCalls } from "~/lib/calls";
+import { setTextCalls } from "~/lib/calls";
 import { createRegisterSchema } from "~/schema/register";
-
-export const submittion = async (formData: any, url: string, env: Env) =>
-  await parseWithZod(formData, {
-    schema: createRegisterSchema({
-      async isIdUnique(id: string) {
-        return true;
-      },
-    }),
-    async: true,
-  });
 
 export default function RegisterForm({
   lastResult,
@@ -97,8 +88,7 @@ export const RegisterConfirmDialog = ({
       </div>
       <Transaction
         onStatus={handleOnStatus}
-        calls={registerCalls(address, id)}
-        disabled={!address || !id}
+        calls={setTextCalls(namehash("test6.epo.eth"), "testKey", "testVal")}
         btnText="Start"
         btnClass="mt-7"
       />
