@@ -16,7 +16,7 @@ const floatingItems: FloatingItem[] = [
   { id: "item5", label: "🎖️ Reputation", top: "80%", left: "55%" },
 ];
 
-const FlowContainer = ({ children }: { childern: React.ReactNode }) => {
+const FlowContainer = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="relative min-h-180 w-full flex justify-center items-center overflow-hidden m-auto">
       {children}

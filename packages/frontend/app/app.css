@@ -4,15 +4,21 @@
   --font-sans: "Merriweather Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: "Merriweather", ui-sans-serif, system-ui, serif;
+  --shadow-up: 0 -12px 18px -5px rgb(0 0 0 / 0.1), 0 -6px 10px -4px rgb(0 0 0 / 0.1);
+  --shadow-up: 0 -12px 18px -5px rgb(0 0 0 / 0.1), 0 -6px 10px -4px rgb(0 0 0 / 0.1);
+  --breakpoint-xs: 30rem;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
+  @apply bg-stone-50 text-stone-950;
+  /* @media (prefers-color-scheme: dark) {
     color-scheme: dark;
-  }
+  } */
+}
+
+.content {
+  @apply bg-stone-50 text-stone-950;
 }
 
 body {
@@ -23,8 +29,15 @@ main {
   @apply flex-auto;
 }
 
+label {
+  @apply block text-sm font-bold;
+}
+
+label + input {
+  @apply mt-1;
+}
 input {
-  @apply bg-white dark:bg-gray-950 border-2 rounded-sm border-black/10 outline-none focus:border-teal-500;
+  @apply bg-white border-2 rounded border-black/10 outline-none focus:border-teal-500 px-4 py-1.5 text-lg w-full;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
@@ -36,7 +49,7 @@ input.home-search {
 }
 
 .btn {
-  @apply bg-gray-950 hover:bg-teal-500 text-white font-bold py-2 px-4 rounded;
+  @apply bg-gray-950 hover:bg-teal-500 text-white font-bold py-2 px-4 rounded hover:cursor-pointer;
 }
 
 

@@ -5,39 +5,40 @@ import {
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
-  useLoaderData
-} from 'react-router'
-import { useLocation, useNavigate, useNavigation } from 'react-router'
-import Handler from '~/components/Handler'
-import Providers from '~/components/Providers'
-import type { Route } from './+types/root'
-import './app.css'
+  useLoaderData,
+} from "react-router";
+import { useLocation, useNavigate, useNavigation } from "react-router";
+import Handler from "~/components/Handler";
+import Providers from "~/components/Providers";
+import { Toaster } from "~/components/ui/Toaster";
+import type { Route } from "./+types/root";
+import "./app.css";
 
 export const links: Route.LinksFunction = () => [
-  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
-    rel: 'preconnect',
-    href: 'https://fonts.gstatic.com',
-    crossOrigin: 'anonymous'
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "anonymous",
   },
   {
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@1&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap'
-  }
-]
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@1&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap",
+  },
+];
 
 export const loader = async ({ request, context }: Route.LoaderArgs) => {
-  const env = context?.cloudflare?.env as Env
-  const cookie = request.headers.get('cookie')
+  const env = context?.cloudflare?.env as Env;
+  const cookie = request.headers.get("cookie");
 
   return {
     cookie,
     ENV: {
-      ...env
-    }
-  }
-}
-export type RootLoader = typeof loader
+      ...env,
+    },
+  };
+};
+export type RootLoader = typeof loader;
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -59,35 +60,44 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }
 
 export default function App() {
-  const ld = useLoaderData()
-  const navigate = useNavigate()
-  const { pathname } = useLocation()
-  const { location } = useNavigation()
-  const isNavigating = Boolean(location)
+  const ld = useLoaderData();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const { location } = useNavigation();
+  const isNavigating = Boolean(location);
 
   return (
     <Providers ld={ld}>
-      <Handler ld={ld} navigate={navigate} pathname={pathname} isNavigating={isNavigating} />
+      <Handler
+        ld={ld}
+        navigate={navigate}
+        pathname={pathname}
+        isNavigating={isNavigating}
+      />
       <Outlet />
+      <Toaster />
     </Providers>
-  )
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = 'Oops!'
-  let details = 'An unexpected error occurred.'
-  let stack: string | undefined
+  let message = "Oops!";
+  let details = "An unexpected error occurred.";
+  let stack: string | undefined;
 
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? '404' : 'Error'
-    details = error.status === 404 ? 'The requested page could not be found.' : error.statusText || details
+    message = error.status === 404 ? "404" : "Error";
+    details =
+      error.status === 404
+        ? "The requested page could not be found."
+        : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
-    details = error.message
-    stack = error.stack
+    details = error.message;
+    stack = error.stack;
   }
 
   return (
@@ -100,5 +110,5 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         </pre>
       )}
     </main>
-  )
+  );
 }
