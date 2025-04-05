@@ -13,7 +13,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       <Header />
       <main className="flex-1">
         <h1 className="text-center text-5xl font-bold mt-20 font-serif">
-          EPO: Your HOME
+          EPO: Your HOME for *
         </h1>
         <FlowContainer>
           <div className="relative -mt-24">

@@ -8,7 +8,7 @@ export const getWagmiConfig = (ENV: Env) =>
     connectors: [
       coinbaseWallet({
         appName: "EPO",
-        appLogoUrl: "",
+        appLogoUrl: "https://demo.epo.im/logo.png",
         preference: {
           options: "smartWalletOnly",
         },
