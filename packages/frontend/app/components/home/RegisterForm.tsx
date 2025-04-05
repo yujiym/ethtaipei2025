@@ -12,6 +12,7 @@ import { useAccount } from "wagmi";
 import ConfirmDialog from "~/components/ConfirmDialog";
 import Transaction from "~/components/CustomTransaction";
 import InputWithError from "~/components/Input";
+import { toast } from "~/components/ui/Toaster";
 import { registerCalls } from "~/lib/calls";
 import { createRegisterSchema } from "~/schema/register";
 
@@ -77,7 +78,8 @@ export const RegisterConfirmDialog = ({
   const handleOnStatus = useCallback(
     (status: LifecycleStatus) => {
       if (status.statusName === "success") {
-        navigate(`/${id}`);
+        toast("👌 Register success!");
+        navigate(`/${id}/edit/general`);
       }
     },
     [id, navigate],

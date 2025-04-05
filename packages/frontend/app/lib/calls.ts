@@ -1,3 +1,4 @@
+import { namehash, normalize } from "viem/ens";
 import { abi as REGISTRAR_ABI } from "~/abis/L2Registrar";
 import { abi as REGISTRY_ABI } from "~/abis/L2Registry";
 import { abi as REVERSE_REGISTRY_ABI } from "~/abis/L2ReverseResolver";
@@ -11,7 +12,6 @@ const L2_REVERSE_REGISTRY_ADDRESS =
 const L2_REVERSE_REGISTRY2_ADDRESS =
   "0x00000BeEF055f7934784D6d81b6BC86665630dbA";
 // const L2_REGISTRY_ADDRESS = "0xde364581c00a929edbf80cabbd6aaafb7f2edf62";
-import { namehash, normalize } from "viem/ens";
 
 export const registerCalls = (
   owner: `0x${string}` | undefined,
@@ -35,17 +35,21 @@ export const registerCalls = (
     : [];
 
 export const setTextCalls = (
-  node: `0x${string}` | undefined,
-  key: string,
-  value: string,
+  id: string | undefined,
+  vals:
+    | {
+        key: string;
+        value: string;
+      }[]
+    | undefined,
 ) =>
-  !!node && !!key && !!value
-    ? [
-        {
+  id && vals
+    ? vals
+        .filter(({ value }) => value.trim() !== "")
+        .map(({ key, value }) => ({
           address: L2_REGISTRY_ADDRESS,
           abi: REGISTRY_ABI,
           functionName: "setText",
-          args: [node, key, value],
-        },
-      ]
+          args: [namehash(`${id}.epo.eth`), key, value],
+        }))
     : [];

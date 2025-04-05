@@ -36,12 +36,12 @@ export default function RegisterForm({
     <FormProvider context={form.context}>
       {children}
       <Form method="post" {...getFormProps(form)}>
-        <div className="relative">
-          <InputWithError
-            className="home-search z-10 min-w-[200px] bg-white"
-            field={fields.id}
-            placeholder="Your NAME"
-          />
+        <div className="form">
+          <InputWithError field={fields.name} placeholder="Your NAME" />
+          <InputWithError field={fields.description} placeholder="Your NAME" />
+          <InputWithError field={fields.id} placeholder="Your NAME" />
+          <InputWithError field={fields.id} placeholder="Your NAME" />
+          <InputWithError field={fields.id} placeholder="Your NAME" />
           <button className="absolute top-4 right-4" type="submit">
             <MagnifyingGlass weight="bold" size="38" />
           </button>
@@ -81,6 +81,22 @@ export const RegisterConfirmDialog = ({
       onOpenChange={() => setConfirmOpen(!confirmOpen)}
     >
       <div className="space-y-4">
+        <div>
+          <label htmlFor="id">Your ID</label>
+          <input readOnly type="text" value={id} />
+        </div>
+        <div>
+          <label htmlFor="id">Your ID</label>
+          <input readOnly type="text" value={id} />
+        </div>
+        <div>
+          <label htmlFor="id">Your ID</label>
+          <input readOnly type="text" value={id} />
+        </div>
+        <div>
+          <label htmlFor="id">Your ID</label>
+          <input readOnly type="text" value={id} />
+        </div>
         <div>
           <label htmlFor="id">Your ID</label>
           <input readOnly type="text" value={id} />

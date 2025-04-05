@@ -13,18 +13,6 @@ import type { Route } from "./+types/user";
 export default function User(_: Route.ComponentProps) {
   const { uid } = useParams();
   const { address } = useAccount();
-  // const res2 = useReadContract({
-  //   abi: REVERSE_REGISTRY_ABI,
-  //   functionName: "name",
-  //   args: [address],
-  // });
-
-  const res = useEnsName({
-    address,
-    chainId: baseSepolia.id,
-  });
-
-  console.log("---res---:", address, res, namehash("test6.epo.eth"));
 
   return (
     <div className="container mx-auto flex min-h-screen flex-col">

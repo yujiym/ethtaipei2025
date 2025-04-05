@@ -50,11 +50,11 @@ export default function Home(_: Route.ComponentProps) {
     <div className="container mx-auto flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <h1 className="mt-20 text-center font-bold font-serif text-5xl">
+        <h1 className="mt-20 text-center font-bold font-serif text-4xl sm:text-5xl px-4">
           Your HOME for *
         </h1>
         <FlowContainer>
-          <div className="-mt-24">
+          <div className="-mt-24 px-4">
             <RegisterForm lastResult={data?.result}>
               <RegisterConfirmDialog
                 joinTitle="👋 Claim your name"
@@ -65,7 +65,6 @@ export default function Home(_: Route.ComponentProps) {
           </div>
         </FlowContainer>
       </main>
-      <Footer />
     </div>
   );
 }
