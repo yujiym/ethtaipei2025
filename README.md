@@ -1,7 +1,7 @@
-# EPO.im
+# EPO.im: Your HOME for *
+A ETHGlobal Taipei 2025 project.
 
 ## Project Description
-- DEMO site: https://demo.epo.im
 
 ### 1. Service Overview
 
@@ -16,6 +16,15 @@
 - Deploys
     - L2 Registrar <> L2 Registry
     - Self
+
+## Codes
+- `packages/frontend` : fronetnd for epo.im -> deployed cloudflare workers
+- `packages/druin` : durin - ENS subnames on an L2
+
+## Deployments
+- [ENS L2 Registry on Base Sepolia](https://sepolia.basescan.org/address/0x10f609f3a940c065afa3e0ee034e9812092b2d39)
+- [ENS config on Sepolia](https://sepolia.app.ens.domains/epo.eth?tab=more)
+- [ENS subnames on Sepolia](https://sepolia.app.ens.domains/epo.eth?tab=subnames)
 
 ### Reference
 - [Durin](https://durin.dev/): Issue onchain ENS subdomains on an L2
