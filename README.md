@@ -12,6 +12,8 @@ Existing services that utilize ENS mainly for resolving address. We'll try real-
 
 **Solution and Key Features**
 
+<img src="https://github.com/user-attachments/assets/8aac0a68-60a9-45f3-9d98-c915509fa6d4" alt="drawing" width="70%"/>
+
 - **Create Account**
 EPO utilizes ENS Subnames and Coinbase Smart Wallet features to provide a mechanism for easily and quickly creating ENS accounts. Users first obtain an Ethereum address via Coinbase Smart Wallet, and by simply entering their desired username, it is instantly registered as an ENS subdomain on the Base Sepolia (L2) network. In this mechanism, the L2Registrar contract directly links the user's wallet address to the ENS name, and the L2ReverseResolver contract establishes a bidirectional link between the wallet address and the ENS name.
 - **Profile Links**
