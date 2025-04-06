@@ -1,11 +1,13 @@
-# EPO Draft
+# EPO
 
 **Product Overview**
+
 EPO is an alternative use case for ENS, enabled through integration with Coinbase Smart Wallet, that allows anyone to easily build an on-chain profile. Users can obtain their own unique ENS-based ID on Layer 2 (Base) without complex procedures or needing to prepare ETH beforehand. Based on this ID, users can build a multifunctional profile featuring: aggregation of multiple links (similar to Linktree or Bento), on-chain evaluation and verification of skills and portfolios, publishing decentralized blogs utilizing IPFS, displaying verified personal information (such as age, nationality) via Self Protocol, and privacy-preserving sending.
 
 ---
 
 **Problem**
+
 Existing services that utilize ENS mainly for resolving address. We'll try real-world use cases. This process is complex and daunting, especially for blockchain beginners. Furthermore, services like eth.limo require technical knowledge regarding IPFS after obtaining an ENS domain, and the content configuration and upload procedures are cumbersome. Due to these factors, building on-chain profiles and using them for self-expression and information sharing is not straightforward for many users.
 
 ---
