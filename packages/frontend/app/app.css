@@ -60,9 +60,9 @@ input.home-search {
   input, textarea {
     @apply mb-4;
   }
-  button {
+  /* button {
     @apply mt-4;
-  }
+  } */
 }
 
 
