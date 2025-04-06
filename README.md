@@ -59,4 +59,5 @@ It provides a decentralized blog function utilizing IPFS. When the "Start Blog" 
 - [Durin](https://durin.dev/): Issue onchain ENS subdomains on an L2
 - [L2 Primary Name](https://docs.ens.domains/web/reverse/#l2-primary-names)(https://docs.ens.domains/web/reverse#l2-primary-names): Primary Names on L2
 - [L2 Reverse Resolver Contracts on Base Sepolia](https://sepolia.basescan.org/address/0xa12159e5131b1eEf6B4857EEE3e1954744b5033A#code): L2 Primary Names
+- [L2 Reverse Registrar With Migration Contracts on Base Sepolia](https://sepolia.basescan.org/address/0x00000BeEF055f7934784D6d81b6BC86665630dbA#code): Update L2 ENS records
 - [Self](https://self.xyz/): Verify real users while preserving privacy.
