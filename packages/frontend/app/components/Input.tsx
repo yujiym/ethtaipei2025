@@ -27,6 +27,7 @@ export default function Input({
             "w-full",
             field?.errors && "!border-red-300/50",
           )}
+          placeholder={placeholder}
         />
       ) : (
         <input
@@ -36,6 +37,7 @@ export default function Input({
             "w-full",
             field?.errors && "!border-red-300/50",
           )}
+          placeholder={placeholder}
         />
       )}
       {hint && (

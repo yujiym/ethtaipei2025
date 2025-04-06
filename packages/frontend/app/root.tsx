@@ -49,10 +49,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel="icon" href="/favicon.png" type="image/png" />
         <Meta />
         <Links />
-        <script
-          type="module"
-          src="https://cdn.jsdelivr.net/npm/@phosphor-icons/webcomponents@2.1.5/dist/index.mjs"
-        />
       </head>
       <body>
         {children}

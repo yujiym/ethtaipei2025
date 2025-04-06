@@ -27,8 +27,8 @@ export const TEXT_KEYS = [
   "url2",
   "url3",
   "url4",
-  "cid.blog",
-  "app.skills",
+  "blog",
+  "skills",
 ];
 
 export const TEXT_FORM_KEYS = [
@@ -44,6 +44,7 @@ export const TEXT_FORM_KEYS = [
   "url2",
   "url3",
   "url4",
+  "skills",
 ];
 
 export const SKILLS = [

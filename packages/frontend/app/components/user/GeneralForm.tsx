@@ -1,14 +1,10 @@
-import {
-  FormProvider,
-  getFormProps,
-  getInputProps,
-  useForm,
-} from "@conform-to/react";
+import { FormProvider, getFormProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { useState } from "react";
 import ConfirmDialog from "~/components/ConfirmDialog";
 import Transaction from "~/components/CustomTransaction";
 import InputWithError from "~/components/Input";
+import SkillSelector from "~/components/SkillSelector";
 import { setTextCalls } from "~/lib/calls";
 import { GeneralSchema } from "~/schema/general";
 
@@ -20,15 +16,18 @@ export default function GeneralForm({
   const [form, fields] = useForm({
     defaultValue: {
       name: data.name || "",
+      avatar: data.avattar || "",
       description: data.description || "",
       com_twitter: data["com.twitter"] || "",
       com_instagram: data["com.instagram"] || "",
       com_github: data["com.github"] || "",
       xyz_farcaster: data["xyz.farcaster"] || "",
+      id_fkey: data["id.fkey"] || "",
       url: data.url || "",
       url2: data.url2 || "",
       url3: data.url3 || "",
       url4: data.url4 || "",
+      skills: data.skills || "",
     },
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: GeneralSchema });
@@ -65,11 +64,30 @@ export default function GeneralForm({
         <InputWithError label="Github" field={fields.com_github} />
         <InputWithError label="Farcaster" field={fields.xyz_farcaster} />
         <InputWithError label="Intagram" field={fields.com_instagram} />
-        <InputWithError label="Website" field={fields.url} />
+        <InputWithError
+          label="FluidKey"
+          field={fields.id_fkey}
+          placeholder="yourname.fkey.id"
+        />
+        <a
+          href="https://www.fluidkey.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="block text-right text-sm text-teal-600 hover:underline -mt-2"
+        >
+          ↗ Claim your fluidkey
+        </a>
+        <InputWithError
+          label="Website"
+          field={fields.url}
+          placeholder="https://xxx.com"
+        />
         <InputWithError field={fields.url2} />
         <InputWithError field={fields.url3} />
         <InputWithError field={fields.url4} />
-        <button className="btn w-full" type="submit">
+        <label htmlFor="skills">Skills</label>
+        <SkillSelector field={fields.skills} />
+        <button className="btn w-full mt-6 mb-12" type="submit">
           Save
         </button>
         <GeneralConfirmDialog
